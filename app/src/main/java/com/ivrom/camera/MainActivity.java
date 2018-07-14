@@ -7,7 +7,6 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.provider.MediaStore;
-import android.support.v4.content.FileProvider;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.Toast;
@@ -74,9 +73,10 @@ public class MainActivity extends Activity {
 
             // Продолжаем только если файл успешно создан
             if (photoFile != null) {
-                photoURI = FileProvider.getUriForFile(this,
-                        "com.example.android.provider",
-                        photoFile);
+//                photoURI = FileProvider.getUriForFile(this,
+//                        "com.example.android.provider",
+//                        photoFile);
+                photoURI = Uri.fromFile(photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, TAKE_PICTURE_REQUEST);
             }
