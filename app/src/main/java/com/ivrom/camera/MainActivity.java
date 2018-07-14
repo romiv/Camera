@@ -2,7 +2,6 @@ package com.ivrom.camera;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -21,7 +20,6 @@ public class MainActivity extends Activity {
     private static final int TAKE_PICTURE_REQUEST = 1;
     private ImageView imageView;
     private String mCurrentPhotoPath;
-    private Bitmap mImageBitmap;
     private Uri photoURI;
 
     @Override
@@ -73,9 +71,6 @@ public class MainActivity extends Activity {
 
             // Продолжаем только если файл успешно создан
             if (photoFile != null) {
-//                photoURI = FileProvider.getUriForFile(this,
-//                        "com.example.android.provider",
-//                        photoFile);
                 photoURI = Uri.fromFile(photoFile);
                 takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
                 startActivityForResult(takePictureIntent, TAKE_PICTURE_REQUEST);
