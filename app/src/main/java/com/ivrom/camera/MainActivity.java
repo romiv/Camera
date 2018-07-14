@@ -14,7 +14,6 @@ import android.widget.Toast;
 
 import java.io.File;
 
-
 public class MainActivity extends Activity {
 
     private static final int TAKE_PICTURE_REQUEST = 1;
